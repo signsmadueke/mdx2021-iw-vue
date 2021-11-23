@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<title>Coursework 1</title>
+</head>
+
+<body>
+	<div id="app">
+		<main>
+			<div class="header">
+				<div class="sort">
+					<select name="sortBy" id="sortBy" v-model="sortBy">
+						<option value="subject">Sort by Subject</option>
+						<option value="location">Sort by Location</option>
+						<option value="price">Sort by Price</option>
+						<option value="availability">Sort by Availability</option>
+					</select>
+					<select name="orderBy" id="orderBy" v-model="orderBy">
+						<option value="ascending">Order by Ascending</option>
+						<option value="descending">Order by Descending</option>
+					</select>
+				</div>
+
+				<form action="#" class="search">
+					<input type="text" v-model="searchTerm" placeholder="Search for a lesson">
+				</form>
+
+				<button class="cart-btn" v-if="cart.length === 0 && showLessons !== false" disabled>
+					Cart&nbsp;&nbsp;&nbsp;
+					<span class="fas fa-cart-plus"></span>
+					{{cart.length}}
+				</button>
+
+				<button class="cart-btn" value="add" @click="toggleCart" v-else>
+					Cart&nbsp;&nbsp;&nbsp;
+					<span class="fas fa-cart-plus"></span>
+					{{cart.length}}
+				</button>
+			</div>
+		</main>
+	</div>
+
+</body>
+
+</html>
