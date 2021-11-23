@@ -44,6 +44,62 @@
 					{{cart.length}}
 				</button>
 			</div>
+
+			<div v-if="showLessons === true">
+				<h1>All Lessons</h1>
+				<br>
+				<div class="lessons">
+					<div v-for="(lesson, index) in sorted" :key="index" class="lesson">
+						<div class="details">
+							<div class="image">
+								<img v-bind:src="lesson.image" alt="">
+							</div>
+							<div class="text">
+								<p>Subject: {{lesson.subject}}</p>
+								<p>Location: {{lesson.location}}</p>
+								<p>Price: ${{lesson.price}}</p>
+								<p>Spaces: {{lesson.spaces - cartCount(lesson)}}</p>
+							</div>
+						</div>
+						<button @click="addToCart(lesson)" v-if="canAddToCart(lesson)">Add to Cart</button>
+						<button disabled='disabled' v-else>Add to Cart</button>
+					</div>
+				</div>
+			</div>
+
+			<div v-if="showLessons === false">
+				<div class="shopping-cart">
+					<div class="cart">
+						<h1>Shopping Cart</h1>
+						<div class="items">
+							<div v-for="(lesson, index) in cart" :key="index" class="item">
+								<div class="details">
+									<div class="image">
+										<img v-bind:src="lesson.image" alt="">
+									</div>
+									<div class="text">
+										<p>Subject: {{lesson.subject}}</p>
+										<p>Location: {{lesson.location}}</p>
+										<p>Price: {{lesson.price}}</p>
+									</div>
+								</div>
+								<button @click="removeFromCart(lesson)">Remove</button>
+							</div>
+						</div>
+
+						<div class="checkout">
+							<h1>Checkout</h1>
+							<div class="form">
+								<input type="text" name="name" id="name" placeholder="Name" v-model.trim="checkout.name"
+									@keyup="canCheckout">
+								<input type="text" name="phone" id="phone" placeholder="Phone" v-model="checkout.phone"
+									@keyup="canCheckout">
+								<button class="checkout-btn" v-on:click="cartCheckout" type="submit">Checkout</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</main>
 	</div>
 
