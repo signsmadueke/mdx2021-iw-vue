@@ -20,6 +20,13 @@ h1 {
     margin: 0;
 }
 
+h2 {
+    font-size: 20px;
+    line-height: 1.5em;
+    font-family: sans-serif;
+    margin: 0;
+}
+
 input[type="button"]:hover,
 button:hover {
     cursor: pointer;
@@ -157,6 +164,34 @@ main {
 
 .cart h1 {
     text-align: center;
+}
+
+.cart .no-items {
+    display: grid;
+    grid-auto-flow: row;
+    width: 400px;
+    grid-gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 70px;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cart .no-items h2 {
+    margin: 0;
+}
+
+.cart .no-items button {
+    background-color: #2566d4;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
 .cart .items {

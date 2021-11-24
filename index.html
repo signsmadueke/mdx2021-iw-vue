@@ -72,9 +72,9 @@
 					<div class="cart">
 						<h1>Shopping Cart</h1>
 						<div class="no-items" v-if="cart.length === 0">
-							<h4>Your cart is empty!</h4>
+							<h2>Your cart is empty!</h2>
 							<p>Looks like you've not added abything to your cart yet.</p>
-							<button value="add" @click="toggleCart">
+							<button @click="toggleCart">
 								Back to Lessons&nbsp;&nbsp;
 								<span class="fas fa-cart-plus"></span>
 							</button>
